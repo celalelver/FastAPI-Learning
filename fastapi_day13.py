@@ -57,7 +57,7 @@ def create_note(note: NoteCreate, db: Session = Depends(get_db)):
     db.refresh(db_note)
     return db_note
 
-@app.post('/users/{user_id}')
+@app.put('/users/{user_id}')
 def update_user(user_id: int, user:UserCreate, db:Session = Depends(get_db)):
     db_user = db.query(models.User).filter(models.User.id == user_id).first()
 
