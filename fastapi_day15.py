@@ -97,7 +97,7 @@ def ask_ai(data: Question):
 
 @app.delete('/users/{user_id}',
             response_model = schemas.MessageResponse,
-            status_code = status.HTTP_204_NO_CONTENT)
+            status_code = status.HTTP_200_OK)
 def delete_user(user_id:int,db:Session=Depends(get_db)):
     db_user = db.query(models.User).filter(models.User.id == user_id).first()
 
